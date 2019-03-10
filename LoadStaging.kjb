@@ -413,7 +413,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>400</xloc>
+      <xloc>384</xloc>
       <yloc>256</yloc>
       <attributes_kjc/>
     </entry>
@@ -432,7 +432,7 @@
       <minutes>0</minutes>
       <weekDay>1</weekDay>
       <DayOfMonth>1</DayOfMonth>
-      <parallel>N</parallel>
+      <parallel>Y</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>96</xloc>
@@ -683,7 +683,7 @@ create database pandora;
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>192</xloc>
+      <xloc>176</xloc>
       <yloc>256</yloc>
       <attributes_kjc/>
     </entry>

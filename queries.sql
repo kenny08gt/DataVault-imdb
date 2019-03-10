@@ -20,3 +20,4 @@ SELECT
   (SELECT COUNT(*) FROM ratings) as ratings_count,
   (SELECT COUNT(*) FROM titles) as titles_count,
   (SELECT COUNT(*) FROM titles_akas) as akas_count;
+  

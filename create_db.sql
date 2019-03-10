@@ -3,14 +3,14 @@ create database pandora;
 CREATE TABLE pandora.titles
 (
   tconst VARCHAR(9)
-, titleType VARCHAR(5)
-, primaryTitle VARCHAR(200)
-, originalTitle VARCHAR(200)
+, titleType VARCHAR(50)
+, primaryTitle VARCHAR(2000)
+, originalTitle VARCHAR(2000)
 , isAdult BIGINT
-, startYear VARCHAR(15)
-, endYear VARCHAR(15)
-, runtimeMinutes VARCHAR(5)
-, genres VARCHAR(25)
+, startYear VARCHAR(50)
+, endYear VARCHAR(50)
+, runtimeMinutes VARCHAR(100)
+, genres VARCHAR(500)
 , load_time DATETIME(6)
 , load_source TINYTEXT
 );
@@ -19,10 +19,10 @@ CREATE TABLE pandora.titles_akas
 (
   titleId VARCHAR(9)
 , ordering BIGINT
-, title VARCHAR(200)
-, region VARCHAR(3)
-, language VARCHAR(5)
-, types VARCHAR(11)
+, title MEDIUMTEXT
+, region VARCHAR(100)
+, language VARCHAR(100)
+, types VARCHAR(50)
 , attributes VARCHAR(200)
 , isOriginalTitle BIGINT
 , load_datetime DATETIMe(6)
@@ -31,42 +31,42 @@ CREATE TABLE pandora.titles_akas
 ;
 CREATE TABLE pandora.names
 (
-  nconst VARCHAR(9)
-, primaryName VARCHAR(100)
-, birthYear VARCHAR(4)
-, deathYear VARCHAR(4)
-, primaryProfession VARCHAR(100)
-, knownForTitles VARCHAR(100)
+  nconst VARCHAR(100)
+, primaryName VARCHAR(1000)
+, birthYear VARCHAR(100)
+, deathYear VARCHAR(100)
+, primaryProfession VARCHAR(1000)
+, knownForTitles VARCHAR(1000)
 , load_datetime DATETIME(6)
 , load_source TINYTEXT
 )
 ;
 CREATE TABLE pandora.crew
 (
-  tconst VARCHAR(9)
-, directors VARCHAR(100)
-, writers VARCHAR(100)
+  tconst VARCHAR(100)
+, directors TEXT
+, writers TEXT
 , load_datetime DATETIME(6)
 , load_source TINYTEXT
 )
 ;
 CREATE TABLE pandora.episodes
 (
-  tconst VARCHAR(9)
-, parentTconst VARCHAR(9)
-, seasonNumber VARCHAR(5)
-, episodeNumber VARCHAR(5)
+  tconst VARCHAR(100)
+, parentTconst VARCHAR(100)
+, seasonNumber VARCHAR(100)
+, episodeNumber VARCHAR(100)
 , load_datetime DATETIME(6)
 , load_source TINYTEXT
 )
 ;
 CREATE TABLE pandora.principals
 (
-  tconst VARCHAR(9)
+  tconst VARCHAR(100)
 , ordering BIGINT
-, nconst VARCHAR(9)
-, category VARCHAR(15)
-, job VARCHAR(100)
+, nconst VARCHAR(100)
+, category VARCHAR(1000)
+, job VARCHAR(1000) 
 , characters TEXT
 , load_datetime DATETIME(6)
 , load_source TINYTEXT
@@ -74,7 +74,7 @@ CREATE TABLE pandora.principals
 ;
 CREATE TABLE pandora.ratings
 (
-  tconst VARCHAR(9)
+  tconst VARCHAR(100)
 , averageRating DOUBLE
 , numVotes BIGINT
 , load_datetime DATETIME(6)

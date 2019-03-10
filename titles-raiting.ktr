@@ -684,7 +684,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>E:\DW\Datasets\title.ratings.tsv\data.100.csv</filename>
+    <filename>E:\DW\Datasets\title.ratings.tsv\data.tsv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
