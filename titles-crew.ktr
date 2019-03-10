@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>job1</name>
+    <name>titles-crew</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -428,16 +427,16 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2019/03/07 20:40:03.177</created_date>
+    <created_date>2019/03/09 18:49:33.387</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2019/03/07 20:40:03.177</modified_date>
+    <modified_date>2019/03/09 18:49:33.387</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>pandora</name>
+    <name>local</name>
     <server>127.0.0.1</server>
     <type>MYSQL</type>
     <access>Native</access>
@@ -479,11 +478,11 @@
       </attribute>
       <attribute>
         <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
-        <attribute>N</attribute>
+        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
-        <attribute>N</attribute>
+        <attribute>Y</attribute>
       </attribute>
       <attribute>
         <code>USE_POOLING</code>
@@ -493,17 +492,17 @@
   </connection>
   <order>
     <hop>
-      <from>Add constants</from>
-      <to>Table output</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Get variables</from>
       <to>Add constants</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>CSV file input</from>
+      <from>Add constants</from>
+      <to>Table output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>titles crew</from>
       <to>Replace in string</to>
       <enabled>Y</enabled>
     </hop>
@@ -532,7 +531,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>txt.200.imdb.title_basics</nullif>
+        <nullif>txt.200.imdb.crew</nullif>
         <length>-1</length>
         <precision>-1</precision>
         <set_empty_string>N</set_empty_string>
@@ -548,146 +547,7 @@
     </remotesteps>
     <GUI>
       <xloc>528</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>CSV file input</name>
-    <type>CsvInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <filename>E:\DW\Datasets\title.basics.tsv\data.100.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>	</separator>
-    <enclosure>"</enclosure>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <encoding>UTF-8</encoding>
-    <fields>
-      <field>
-        <name>tconst</name>
-        <type>String</type>
-        <format/>
-        <currency>Q</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>9</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>titleType</name>
-        <type>String</type>
-        <format/>
-        <currency>Q</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>5</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>primaryTitle</name>
-        <type>String</type>
-        <format/>
-        <currency>Q</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>57</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>originalTitle</name>
-        <type>String</type>
-        <format/>
-        <currency>Q</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>67</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>isAdult</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>Q</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>startYear</name>
-        <type>String</type>
-        <format>#</format>
-        <currency>Q</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>endYear</name>
-        <type>String</type>
-        <format/>
-        <currency>Q</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>2</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>runtimeMinutes</name>
-        <type>String</type>
-        <format/>
-        <currency>Q</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>2</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>genres</name>
-        <type>String</type>
-        <format/>
-        <currency>Q</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>25</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>112</xloc>
-      <yloc>112</yloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -704,10 +564,10 @@
     </partitioning>
     <fields>
       <field>
-        <name>load_time</name>
+        <name>load_datetime</name>
         <variable>${load_datetime}</variable>
         <type>String</type>
-        <format>yyyy-MM-dd HH:mm:ss.SSS</format>
+        <format/>
         <currency/>
         <decimal/>
         <group/>
@@ -725,92 +585,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>400</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>pandora</connection>
-    <schema>pandora</schema>
-    <table>titles</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-      <field>
-        <column_name>tconst</column_name>
-        <stream_name>tconst</stream_name>
-      </field>
-      <field>
-        <column_name>titleType</column_name>
-        <stream_name>titleType</stream_name>
-      </field>
-      <field>
-        <column_name>primaryTitle</column_name>
-        <stream_name>primaryTitle</stream_name>
-      </field>
-      <field>
-        <column_name>originalTitle</column_name>
-        <stream_name>originalTitle</stream_name>
-      </field>
-      <field>
-        <column_name>isAdult</column_name>
-        <stream_name>isAdult</stream_name>
-      </field>
-      <field>
-        <column_name>startYear</column_name>
-        <stream_name>startYear</stream_name>
-      </field>
-      <field>
-        <column_name>endYear</column_name>
-        <stream_name>endYear</stream_name>
-      </field>
-      <field>
-        <column_name>runtimeMinutes</column_name>
-        <stream_name>runtimeMinutes</stream_name>
-      </field>
-      <field>
-        <column_name>genres</column_name>
-        <stream_name>genres</stream_name>
-      </field>
-      <field>
-        <column_name>load_time</column_name>
-        <stream_name>load_time</stream_name>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>704</xloc>
-      <yloc>112</yloc>
+      <xloc>416</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -839,7 +615,7 @@
         <is_unicode>no</is_unicode>
       </field>
       <field>
-        <in_stream_name>titleType</in_stream_name>
+        <in_stream_name>directors</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
         <replace_string>\N</replace_string>
@@ -851,67 +627,7 @@
         <is_unicode>no</is_unicode>
       </field>
       <field>
-        <in_stream_name>primaryTitle</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>\N</replace_string>
-        <replace_by_string>0</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>originalTitle</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>\N</replace_string>
-        <replace_by_string>0</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>startYear</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>\N</replace_string>
-        <replace_by_string>0</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>endYear</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>\N</replace_string>
-        <replace_by_string>0</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>runtimeMinutes</in_stream_name>
-        <out_stream_name/>
-        <use_regex>no</use_regex>
-        <replace_string>\N</replace_string>
-        <replace_by_string>0</replace_by_string>
-        <set_empty_string>N</set_empty_string>
-        <replace_field_by_string/>
-        <whole_word>no</whole_word>
-        <case_sensitive>no</case_sensitive>
-        <is_unicode>no</is_unicode>
-      </field>
-      <field>
-        <in_stream_name>genres</in_stream_name>
+        <in_stream_name>writers</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
         <replace_string>\N</replace_string>
@@ -932,8 +648,125 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>112</yloc>
+      <xloc>288</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table output</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>local</connection>
+    <schema>pandora</schema>
+    <table>crew</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>titles crew</name>
+    <type>CsvInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <filename>E:\DW\Datasets\title.crew.tsv\data.100.csv</filename>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>	</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding/>
+    <fields>
+      <field>
+        <name>tconst</name>
+        <type>String</type>
+        <format/>
+        <currency>Q</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>directors</name>
+        <type>String</type>
+        <format/>
+        <currency>Q</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>19</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>writers</name>
+        <type>String</type>
+        <format/>
+        <currency>Q</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>160</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
