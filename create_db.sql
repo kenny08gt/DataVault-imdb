@@ -1,21 +1,21 @@
 drop database if exists pandora;
 create database pandora;
-CREATE TABLE pandora.titles
+CREATE TABLE pandora.200_txtimdb_titles_basics
 (
   tconst VARCHAR(9)
 , titleType VARCHAR(50)
 , primaryTitle VARCHAR(2000)
 , originalTitle VARCHAR(2000)
-, isAdult BIGINT
+, isAdult TINYINT
 , startYear VARCHAR(50)
 , endYear VARCHAR(50)
 , runtimeMinutes VARCHAR(100)
 , genres VARCHAR(500)
-, load_time DATETIME(6)
+, load_datetime DATETIME(6)
 , load_source TINYTEXT
 );
 
-CREATE TABLE pandora.titles_akas
+CREATE TABLE pandora.200_txtimdb_titles_akas
 (
   titleId VARCHAR(9)
 , ordering BIGINT
@@ -24,12 +24,12 @@ CREATE TABLE pandora.titles_akas
 , language VARCHAR(100)
 , types VARCHAR(50)
 , attributes VARCHAR(200)
-, isOriginalTitle BIGINT
+, isOriginalTitle TINYINT
 , load_datetime DATETIMe(6)
 , load_source TINYTEXT
 )
 ;
-CREATE TABLE pandora.names
+CREATE TABLE pandora.200_txtimdb_titles_names
 (
   nconst VARCHAR(100)
 , primaryName VARCHAR(1000)
@@ -41,7 +41,7 @@ CREATE TABLE pandora.names
 , load_source TINYTEXT
 )
 ;
-CREATE TABLE pandora.crew
+CREATE TABLE pandora.200_txtimdb_titles_crew
 (
   tconst VARCHAR(100)
 , directors TEXT
@@ -50,7 +50,7 @@ CREATE TABLE pandora.crew
 , load_source TINYTEXT
 )
 ;
-CREATE TABLE pandora.episodes
+CREATE TABLE pandora.200_txtimdb_titles_episodes
 (
   tconst VARCHAR(100)
 , parentTconst VARCHAR(100)
@@ -60,7 +60,7 @@ CREATE TABLE pandora.episodes
 , load_source TINYTEXT
 )
 ;
-CREATE TABLE pandora.principals
+CREATE TABLE pandora.200_txtimdb_titles_principals
 (
   tconst VARCHAR(100)
 , ordering BIGINT
@@ -72,7 +72,7 @@ CREATE TABLE pandora.principals
 , load_source TINYTEXT
 )
 ;
-CREATE TABLE pandora.ratings
+CREATE TABLE pandora.200_txtimdb_titles_ratings
 (
   tconst VARCHAR(100)
 , averageRating DOUBLE
